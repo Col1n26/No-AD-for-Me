@@ -1,0 +1,54 @@
+#!name=小红书去广告
+#!desc=小红书广告及部分信息流净化
+#!author=fmz200 Converted from Quantumult X
+#!update=2026-09-28
+
+[Rule]
+
+# 小红书广告图片/视频域名
+DOMAIN,ads-img-qc.xhscdn.com,REJECT
+DOMAIN,ads-img-al.xhscdn.com,REJECT
+DOMAIN,ads-video-al.xhscdn.com,REJECT
+DOMAIN,ads-video-qc.xhscdn.com,REJECT
+DOMAIN,t-ads.xiaohongshu.com,REJECT
+
+[URL Rewrite]
+
+# 惊喜弹窗
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/surprisebox\/(get_style|open|submit_action) url REJECT-DICT
+
+^https?:\/\/www\.xiaohongshu\.com\/api\/marketing\/box\/trigger\? url REJECT-DICT
+
+# 信息流
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/guide\? url REJECT-DICT
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/detailfeed\/preload\? url REJECT-DICT
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/guide\/user_banner url REJECT-DICT
+^https?:\/\/www\.xiaohongshu\.com\/api\/sns\/(v\d+\/ads\/resource|v\d+\/hey\/\w+\/hey_gallery) url REJECT-DICT
+
+# 搜索页
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(banner_list|hot_list) url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/(hint|trending)\? url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+^https?:\/\/(so|edith)\.xiaohongshu\.com\/api\/sns\/v\d+\/search\/notes\? url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+# 开屏广告
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/config\? url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/system_service\/splash_config url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+# 详情页、小部件
+^https?:\/\/edith\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/widgets url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+# 图片水印、视频水印
+^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/note\/(imagefeed|live_photo\/save) url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/v\d+\/(followfeed|homefeed)\? url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/(v2\/note\/feed|v3\/note\/videofeed)\? url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+^https?:\/\/(edith|rec|www)\.xiaohongshu\.com\/api\/sns\/(v4\/note\/videofeed|v10\/note\/video\/save)\? url script-response-body https://github.com/fmz200/wool_scripts/raw/main/Scripts/xiaohongshu/xiaohongshu.js
+
+[MITM]
+
+hostname = %APPEND% edith.xiaohongshu.com, www.xiaohongshu.com, ci.xiaohongshu.com, rec.xiaohongshu.com
