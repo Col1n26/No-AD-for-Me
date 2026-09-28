@@ -1,0 +1,4 @@
+# > 最右
+# hostname = api.izuiyou.com, adapi.izuiyou.com
+^https?:\/\/api\.izuiyou\.com\/ad\/ url reject
+^https?:\/\/adapi\.izuiyou\.com\/ url reject

@@ -1,0 +1,36 @@
+#!name=高德地图去广告
+#!desc=高德地图广告及部分营销请求拦截
+#!author=Converted from Quantumult X
+#!update=2026-09-28
+
+[Rule]
+
+# 高德相关广告/营销域名
+DOMAIN-SUFFIX,adiu.amap.com,REJECT
+DOMAIN,aboard.apilocate.amap.com,REJECT
+DOMAIN,apiinit.amap.com,REJECT
+DOMAIN,icloud-amap.com,REJECT
+DOMAIN,logs.amap.com,REJECT
+DOMAIN-SUFFIX,dualstack-logs.amap.com,REJECT
+DOMAIN-SUFFIX,logs.amap.com,REJECT
+DOMAIN-SUFFIX,optimus-ads.amap.com,REJECT
+DOMAIN-SUFFIX,page.amap.com,REJECT
+DOMAIN,optimus-ads.amap.com,REJECT
+DOMAIN,optimus-ads.amap.com.w.alikunlun.com,REJECT
+DOMAIN-SUFFIX,shouji.sougou.com,REJECT
+DOMAIN,u51.me,REJECT
+DOMAIN-SUFFIX,u51.me,REJECT
+
+[URL Rewrite]
+
+# 开屏广告初始化
+^https?:\/\/m5\.amap\.com\/ws\/shield\/dsp\/app\/startup\/init\? url REJECT-DICT
+
+# 增值服务
+^https?:\/\/m5\.amap\.com\/ws\/valueadded\/ url REJECT
+
+# 广告 GIF 上传
+^https?:\/\/optimus-ads\.amap\.com\/uploadimg\/[a-zA-Z0-9]+\.gif url REJECT-200
+
+# 开屏广告
+^https?:\/\/amap-aos-info-nogw\.amap\.com\/ws\/aos\/alimama\/splash_screen_rt url REJECT

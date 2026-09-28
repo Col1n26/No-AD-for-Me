@@ -1,0 +1,65 @@
+#!name=QQ音乐去广告
+#!desc=拦截QQ音乐广告、开屏广告及部分营销请求
+#!author=Converted from Quantumult X
+#!update=2026-09-28
+
+[Rule]
+
+# 腾讯音乐广告域名
+DOMAIN,adstats.tencentmusic.com,REJECT
+DOMAIN,ad.tencentmusic.com,REJECT
+DOMAIN,adcdn.tencentmusic.com,REJECT
+DOMAIN,adcdn6.tencentmusic.com,REJECT
+DOMAIN,adexpo.tencentmusic.com,REJECT
+DOMAIN,adclick.tencentmusic.com,REJECT
+
+# QQ音乐统计 / 监控
+DOMAIN,otheve.beacon.qq.com,REJECT
+DOMAIN,monitor.music.qq.com,REJECT
+DOMAIN,stat.y.qq.com,REJECT
+DOMAIN,tmead.y.qq.com,REJECT
+DOMAIN,oth.str.mdt.qq.com,REJECT
+DOMAIN,h.trace.qq.com,REJECT
+DOMAIN,sdk.e.qq.com,REJECT
+DOMAIN,p.l.qq.com,REJECT
+DOMAIN,us.l.qq.com,REJECT
+DOMAIN,tangram.e.qq.com,REJECT
+DOMAIN,tmeadbak.y.qq.com,REJECT
+DOMAIN,tmeadcomm.y.qq.com,REJECT
+DOMAIN,ad.tencentmusic.com,REJECT
+DOMAIN,amsweb-cdn-gz-1258344696.file.myqcloud.com,REJECT
+DOMAIN,wallpaper-1258344696.file.myqcloud.com,REJECT
+DOMAIN,xs.gdt.qq.com,REJECT
+
+# 广告 / 腾讯相关域名
+DOMAIN-SUFFIX,imtmp.net,REJECT
+DOMAIN-SUFFIX,rqd.qq.com,REJECT
+DOMAIN-SUFFIX,wup.imtt.qq.com,REJECT
+DOMAIN-SUFFIX,gdt.qq.com,REJECT
+DOMAIN-SUFFIX,android.rqd.qq.com,REJECT
+DOMAIN-SUFFIX,e.qq.com,REJECT
+DOMAIN-SUFFIX,beacon.qq.com,REJECT
+DOMAIN-SUFFIX,v.gdt.qq.com,REJECT
+
+# 广告服务器 IP
+IP-CIDR,120.222.240.171/32,REJECT
+
+[URL Rewrite]
+
+# QQ音乐广告接口
+^https?:\/\/us\.l\.qq\.com\/exapp url REJECT
+
+# 开屏广告信息
+^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/t_splash_info\/ url REJECT
+
+# 其他域名的开屏广告信息
+^https?:\/\/.+?\/music\/common\/upload\/t_splash_info\/ url REJECT
+
+# 酷狗/QQ音乐广告图片
+^https?:\/\/y\.gtimg\.cn\/music\/common\/\/upload\/kg_ad\/.*?\d{4}\.jpg url REJECT-IMG
+
+# 定向广告图片
+^https?:\/\/y\.gtimg\.cn\/music\/common\/upload\/targeted_ads url REJECT-IMG
+
+# IP 地址形式的开屏广告接口
+^https?:\/\/((25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\.){3}(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\/music\/common\/upload\/t_splash_info\/ url REJECT
