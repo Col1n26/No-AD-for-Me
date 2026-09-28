@@ -1,0 +1,10 @@
+# > 游民星空
+# hostname = *.gamersky.com
+host-suffix, ja.gamersky.com, reject
+host-suffix, ja1.gamersky.com, reject
+
+^http:\/\/.+\.gamersky\.com\/.+\/adSystem\/ad\/.+ url reject-dict
+
+# 移除开屏广告、列表广告
+https://.+\.gamersky.com/v1/statisticAd url reject-dict
+http:\/\/.+\.gamersky.com/.+/lists/getListElements url jsonjq-response-body '.listElements |= map(select(has("adCategory") | not))'
