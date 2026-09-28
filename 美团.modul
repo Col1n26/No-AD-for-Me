@@ -1,0 +1,45 @@
+#!name=美团去广告
+#!desc=美团及美团外卖广告、开屏及部分营销请求拦截
+#!author=Converted from Quantumult X
+#!update=2026-09-28
+
+[Rule]
+
+# 美团广告 / 数据统计相关域名
+DOMAIN-SUFFIX,meituan.xn,REJECT
+DOMAIN-SUFFIX,meituan.yoga,REJECT
+DOMAIN-SUFFIX,meituangov.cn,REJECT
+DOMAIN-SUFFIX,report.meituan.com,REJECT
+DOMAIN-SUFFIX,analytics.meituan.net,REJECT
+DOMAIN-SUFFIX,wmlog.meituan.com,REJECT
+DOMAIN-SUFFIX,ad.e.waimai.sankuai.com,REJECT
+DOMAIN-SUFFIX,mads.meituan.com,REJECT
+DOMAIN-SUFFIX,dreport.meituan.net,REJECT
+DOMAIN-SUFFIX,d.meituan.net,REJECT
+
+[URL Rewrite]
+
+# 美团开屏 / 启动信息
+^https?:\/\/wmapi\.meituan\.com\/api\/v7\/(loadInfo|openscreen|startpicture)\? url REJECT-DICT
+
+# Linglong 广告资源
+^https?:\/\/(s3plus|flowplus)\.meituan\.net\/v\d\/\w+\/linglong\/\w+\.(gif|jpg|mp4) url REJECT-IMG
+
+# 品牌广告图片
+^https?:\/\/img\.meituan\.net\/bizad\/bizad_brandCpt_\d+\.jpg url REJECT-IMG
+
+# 商品奖励广告图片
+^https?:\/\/img\.meituan\.net\/goodsawardpic\/[a-f0-9]+\.png\.webp url REJECT-IMG
+
+# 广告配置
+^https?:\/\/s3plus\.meituan\.net\/ocean-blk-index\/index\/blk_conf_73\.json url REJECT-DICT
+
+# 品牌广告 / 外卖广告资源
+^https?:\/\/s3plus\.meituan\.net\/v1\/mss_\w+\/(brandcpt-vedio|waimai-alita)\/\w+\.zip$ url REJECT-DICT
+
+# AMDC 数据上报 / 调度
+^http:\/\/59\.82\.113\.10\/amdc\/mobileDispatch\?appkey=213807& url REJECT-DICT
+
+[MITM]
+
+hostname = %APPEND% img.meituan.net, s3plus.meituan.net, flowplus.meituan.net
