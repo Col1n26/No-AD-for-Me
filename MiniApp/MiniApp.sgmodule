@@ -12,46 +12,12 @@
 ^https?:\/\/capi\.lkcoffee\.com\/resource\/m\/order\/orderBanner url reject-dict
 ^https?:\/\/capi\.lkcoffee\.com\/resource\/market\/receiveCoupon\/receiveCouponPop url reject-dict
 
-# > U净生活
-^https?:\/\/api-marketing\.zhinengyifang\.cn\/api\/v\d\/cloudcode\/wechat\/bid url reject
-
-# > 奈雪点单
-^https?:\/\/tm-api\.pin-dao\.cn\/home\/api\/index\/activeConfig\/ url reject-dict
-^https?:\/\/tm-api\.pin-dao\.cn\/home\/api\/resource\/config\/homeBannerNodes url reject-dict
-^https?:\/\/tm-api\.pin-dao\.cn\/activity\/.*\/pop url reject-dict
-
-# > 南方航空
-^https?:\/\/wxapi\.csair\.com\/mini\/api\/adVerTiSing\/(?!getPersonalCenterAdList) url reject-dict
-
-# > 故宫博物馆
-^https?:\/\/gugongmini\.dpm\.org\.cn\/gugong_applet\/open-screen url reject-dict
-
-# > 怪兽充电
-^https?:\/\/aag\.enmonster\.com\/apa(\/index)?\/advert url reject
-^https?:\/\/aag\.enmonster\.com\/apa(\/discount)?\/activity url reject-dict
 
 # > 古茗茶饮点单
 ^https?:\/\/newton\.gumingnc\.com\/newton-buyer\/newton\/buyer\/(ump|touch|external\/front) url reject-dict
 
 # > 工银E生活
 ^https?:\/\/elife\.icbc\.com\.cn\/OFSTNEWBASE\/floorinfo\/(getStartupMantleFlatingFloor|getMantlePages) url reject-200
-
-# > 广州地铁乘车码
-^https?:\/\/apis\.alenable\.com\/mall\/v\d\/api\/mall\/skin\/user\/get url reject-dict
-^https?:\/\/apis\.alenable\.com\/ycx\/v\d\/api\/adPut url reject-dict
-
-# > 中油好客e站
-^https?:\/\/minipro\.95504\.net\/app\/json\/ad\/get(?>Pop|Index)AdData url reject
-
-# > 智慧云停车管家
-^https?:\/\/www\.bahecloud\.com\/webapi\.asmx\/api_GetAdvCmdCode url reject
-
-# > 招行信用卡
-^https?:\/\/xyk\.cmbchina\.com\/WebAppConfigService\/get(Page)?ResourceBits url script-response-body https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/cmbcc.js
-^https?:\/\/weclub\.ccc\.cmbchina\.com\/SCRMMiniAppCenterNode\/resource\/gateway\/get-page-resource url script-response-body https://raw.githubusercontent.com/zirawell/R-Store/main/Res/Scripts/AntiAd/cmbcc.js
-
-# > 中国天气网
-^https?:\/\/e\.weather\.com\.cn\/weChat\/typhoonNull\.json url reject-dict
 
 # > 中通快递
 ^https?:\/\/hdgateway\.zto\.com\/(?>getApolloConfig|track|getAdInfo|listJumperShow) url reject-dict
@@ -70,9 +36,6 @@
 ^https?:\/\/wx\.17u\.cn\/wireless\/monitor\/wx\/common\/compressevent url reject-dict
 ^https?:\/\/\w+\.sh\.wxgateway\.com\/xcxhomeapi\/((aggregator\/index)|(home\/(?>screen|banner|converge)))$ url reject-dict
 
-# > 特来电
-^https?:\/\/sg\.teld\.cn\/api\/invoke\?SID=(?>CMS-GetMpAdList|OMP-Monitor-FrontendSend|CMS-GetMPBannerByType|ATMS-MissioncenterSlideshow) url reject-dict
-
 # > 腾讯乘车码
 ^https?:\/\/ccmsupport-sz\.tenpay\.com\/cgi-bin\/common\/ccm_page_element.cgi url reject
 
@@ -84,11 +47,6 @@
 ^https?:\/\/customer-app\.sto\.cn\/api\/app\/banner\/banner url reject-dict
 ^https?:\/\/sto-customer-app\.oss-cn-shanghai\.aliyuncs\.com\/images url reject-dict
 
-# > 闪送
-^https?:\/\/miniprogram\.ishansong\.com\/cms\/faq\/query url reject-dict
-
-# > 上海地铁
-^https?:\/\/dock\.tenchii\.com\/DockCard\/api\/mini\/card\/list url reject-dict
 
 # > 顺丰速运
 ^https?:\/\/mcs-mimp-web\.sf-express\.com\/mcs-mimp\/integralPlanet\/getCxAdvertiseList url reject-dict
@@ -109,14 +67,6 @@
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/home\/hotActivity url reject-dict
 ^https?:\/\/api\.mcd\.cn\/bff\/portal\/richpop url reject-dict
 
-# > 街电
-^https?:\/\/s\.jiediankeji\.com\/adv url reject-dict
-
-# > 金地广场
-^https?:\/\/m\.mallcoo\.cn\/api\/content\/Ads url reject
-
-# > 极兔快递
-^https?:\/\/applets\.jtexpress\.com\.cn url reject-dict
 
 # > 交通银行
 ^https?:\/\/creditcardapp\.bankcomm\.com\/cnsvPmpaMdbcardWeb\/page\/getGuidePageAds url reject
@@ -129,9 +79,6 @@
 ^https?:\/\/lop-proxy\.jd\.com\/search\/getQuestionnaireByOrderInfo url reject-dict
 ^https?:\/\/lop-proxy\.jd\.com\/index\/queryTabBubble url reject
 ^https?:\/\/lop-proxy\.jd\.com\/smartmp\/querySmartDecision url reject-dict
-
-# > 曹操出行
-^https?:\/\/minicap\.caocaokeji\.cn\/advert-bss\/pullAdvert url reject-dict
 
 # > 菜鸟速递
 ^https?:\/\/cn-acs\.m\.cainiao\.com\/h5\/mtop\.cainiao\.guoguo\.tdwxgateway\.ads url reject-dict
@@ -152,21 +99,8 @@
 # > 德邦快递
 ^https?:\/\/www\.deppon\.com\/gwapi\/memberService\/eco\/member\/grade\/commonInterface url reject-dict
 
-# > 星巴克
-^https?:\/\/3pp\.starbucks\.com\.cn\/wxmem\/popup url reject-dict
-^https?:\/\/3pp\.starbucks\.com\.cn\/wxmem\/index\/(?>banner|global) url reject-dict
-
 # > 携程
 ^https?:\/\/m\.ctrip\.com\/restapi\/soa\d\/\d+\/(?>tripAds|queryWeChatHotEvent) url reject-dict
-
-# > 西贝
-^https?:\/\/api\.xibei\.com\.cn\/ad\/api\/Advert\/getAdvertList url reject
-
-# > 享道出行
-^https?:\/\/passengerapi\.saicmobility\.com\/(ad\/requestAd|pay\/v\d\/queryOpenedCouponPackages) url reject-dict
-
-# > 小兔充充
-^https?:\/\/ad\.xiaotucc\.com\/advert url reject
 
 # > EMS
 ^https?:\/\/\w+\.ems\.com\.cn\/mailAd$ url reject
@@ -176,9 +110,6 @@
 # > 饿了么
 ^https?:\/\/waimai-guide\.ele\.me\/h5\/mtop\.alsc\.eleme\.homepage\.miniapp\.popup url reject-dict
 
-# > ETCP
-^https?:\/\/ife\.etcp\.cn\/api\/v[0-9]\/advertisement url reject
-^https?:\/\/static\.etcp\.cn\/json\/advertisment url reject-dict
 
 # > 必胜客
 ^https?:\/\/res\.pizzahut\.com\.cn\/CRM url reject-dict
@@ -187,63 +118,9 @@
 ^https?:\/\/wx(app)?\.api\.ke\.com\/pt\/pt-xcx\/boot\/ping url reject-dict
 ^https?:\/\/wx(app)?\.api\.ke\.com\/pt\/platform\/platform\/shellxcx\/homepage\/popup url reject-dict
 
-# > 百度网盘
-^https?:\/\/pan\.baidu\.com\/buy\/ad\/ url reject-200
-
-# > 百果园
-^https?:\/\/dsxcx\.tencent-prod\.pagoda\.com\.cn\/exc\/wxapp\/homePage\/v\d\/get(?>HomeLaunchDialog|Floating) url reject-dict
-^https?:\/\/eshop-api-wx-mini\.eshop\.tencent-prod\.pagoda\.com\.cn\/api\/v\d\/memberPage\/launchDialog url reject-dict
-
-# > 霸王茶姬
-# 已合并至通用规则
-
-# > 宝龙悠悠
-^https?:\/\/proservice\.powerlong\.com\/advertising url reject-dict
-
 # > 肯德基
 ^https?:\/\/dynamicad\.kfc\.com\.cn\/api url reject-dict
 ^https?:\/\/res\.kfc\.com\.cn\/CRM\/kfcad\/custom_v\d\/wxapp url reject-dict
-
-# > 快狗
-^https?:\/\/suyun-guest\.daojia\.com\/api\/kuaigou\/banjia\/review url reject-dict
-
-# > 来电
-^https?:\/\/mobile-api\.imlaidian\.com\/api\/args url reject-dict
-
-# > 罗森
-^https?:\/\/plt\.yorentown\.com\/pltapp\/v\d\/banner url reject-dict
-^https?:\/\/lawsonapi\.yorentown\.com\/app\/v\d\/globalLaunch\/listAdvert url reject-dict
-
-# > 莱充
-^https?:\/\/(mobile|shop)\.laichon\.com\/api\/(v\d\/goods\/goodsList|exposureAdvStatistics|getWebAdvList) url reject
-
-# > 蓝波智能
-^https?:\/\/wx\.ymiot\.net\/Static\/\w+\/advert url reject-200
-
-# > 老乡鸡
-^https?:\/\/member\.lxjchina\.com\.cn\/mini-server\/home\/page\/banner url reject-dict
-
-# > 老碗会
-^https?:\/\/wx\.youhaosoft\.com\/prom\/Ad url reject
-
-# > 羊城通
-^https?:\/\/r2\.gzyct\.com\/qrcode\/advert url reject-dict
-
-# > 圆通
-^https?:\/\/mec\.yto\.net\.cn\/api\/market\/queryActivityPromotion url reject-dict
-^https?:\/\/mec\.yto\.net\.cn\/api\/officalWeb\/content\/query url reject-dict
-
-# > 云快充
-^https?:\/\/web-stable-cdn\.ykccn\.com\/sp-img-2023\/common\/weCom-open url reject-img
-^https?:\/\/gw3\.ykccn\.com\/api\/omp\/mt\/appAdvertising\/ url reject-dict
-^https?:\/\/gw3\.ykccn\.com\/activityServer\/app\/commandAd url reject
-^https?:\/\/gw3\.ykccn\.com\/api\/omp\/mt\/charge\/activity\/package\/newest url reject-dict
-
-# > 韵达
-^https?:\/\/ydmbpic\.yundasys\.com\/opserver\/statics\/uniAppImage\/selfCenter\/rightsPop url reject-dict
-
-# > 有赞
-^https?:\/\/\w+\.youzan\.com\/wscshop\/shopad url reject-dict
 
 # > 永辉生活
 ^https?:\/\/api\.yonghuivip\.com\/api\/fp\/homepage\/pop url reject
@@ -255,25 +132,11 @@
 ^https?:\/\/cappapi\.alittle-tea\.com\/open\?method=catering\.set\.ad\.initial url reject-dict
 ^https?:\/\/alittle-tea\.oss-cn-shanghai\.aliyuncs\.com\/images\/platform\/alittle url reject-dict
 
-# > 易捷加油
-^https?:\/\/a\.sinopecsales\.com\/app\/cms url reject-dict
-^https?:\/\/ocrifs\.ejoy\.sinopec\.com\/advertitfs\/advert\/findAdvertInfo url reject-200
-^https?:\/\/egw\.ejoy\.sinopec\.com\/api\/interface\/queryEffectiveBulletin url reject-dict
-
-# > 物微联
-^https?:\/\/new\.wwldz\.com\/wechat\/ad\/ url reject-dict
-
-# > 味全商城
-^https?:\/\/consumer-api\.quncrm\.com\/v\d\/ec\/(splashWeappPage|marketing\/visibleEnterStoreWelfares) url reject-dict
-
 # > 沃尔玛
 ^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/page\/getPageActivityTab url reject-dict
 ^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/spread\/querySpreadList url reject-dict
 ^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/navigation\/user\/getAdvertisementPlayModuleInfo url reject-dict
 ^https?:\/\/mapi\.ghsmpwalmart\.com\/api\d\/ec\/user\/couponPackage\/couponPackageAccess url reject-dict
-
-# > 问卷星
-^https?:\/\/image\.wjx\.cn\/joinnew\/js\/joinawardactivitymobo url reject-dict
 
 # > 微快递
 ^https?:\/\/api\.kuaidihelp\.com\/g_order_core\/v\d\/mina\/User\/getBannerList url reject-dict
