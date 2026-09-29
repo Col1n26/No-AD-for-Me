@@ -1,7 +1,7 @@
 #!name=哔哩哔哩去广告
 #!desc=某些APP要清除缓存或者重新安装拦截广告才会生效！fmz200
 #!author=奶思
-#!category=奶思的模块 ！！！！ 搭配脚本 Bilibili/bilibili.protobuf.request.js
+#!category=奶思的模块 ！！！！ 搭配脚本 bilibili.protobuf.request.js   bilibili.json.js
 #!homepage=https://github.com/fmz200/wool_scripts
 #!raw-url=https://github.com/fmz200/wool_scripts/raw/main/Shadowrocket/module/split/partB/bilibili.srmodule
 #!tg-channel=https://t.me/inaisi
